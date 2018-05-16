@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+<div class="collapse navbar-collapse" id="navbarNav">
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" [routerLink]="['home']">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['about']">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['contactus']">ContactUs</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['datachart']">DataChart</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['d3chart1']">D3chart1</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['d3barchart']">D3BarChart</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['d3piechart']">D3PieChart</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['datagrid']">DataGrid</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['datatable']">DataTable</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['signin']">SignIn</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['register']">Register</a>
+    </li>
+  
+  </ul>
+</div>
+</nav>
+<router-outlet></router-outlet>
+
+
