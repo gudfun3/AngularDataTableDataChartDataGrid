@@ -5,9 +5,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 This is POC on Angular / D3 / AgGrid/ NgxCharts 
 More D3 Demos using Angular will be updated here
 
-1.First Obstacle Faced:(solved)
+* First Obstacle Faced:(solved)
 Component level Css dont reflect on component level elements on page while using D3
-solved : Solved by using Css Shadow piercing combinator
+* solved : Solved by using Css Shadow piercing combinator
 Style scope
 The styles specified in @Component metadata apply only within the template of that component.
 
@@ -41,6 +41,8 @@ Only encapsulation: ViewEncapsulation.Native  won't work so you must use the :ho
 *  will directly affect the DOM so to give scoped style or style specific to our component we
 * can take the help of encapsulation property in our @Component Decorator which won't leak style to other
 * component and will keep the style to itself
+
+
 
 
 ## Development server
