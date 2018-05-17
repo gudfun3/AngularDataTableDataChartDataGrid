@@ -27,10 +27,12 @@
     "@types/d3-shape": "^1.2.2",
     "ag-grid": "^17.1.1",
     "ag-grid-angular": "^17.1.0",
+    "angular-popper": "^1.0.0",
     "bootstrap": "^4.1.1",
     "core-js": "^2.5.4",
     "d3": "^5.4.0",
-    "jquery": "^1.9.1",
+    "jquery": "^1.12.4",
+    "popper.js": "^1.14.3",
     "rxjs": "^6.0.0",
     "tslib": "^1.9.1",
     "zone.js": "^0.8.26"

@@ -1,9 +1,40 @@
-.chart {
-    font: 10px sans-serif;
-    background-color: steelblue;
-    
-    text-align: right;
-    padding: 3px;
-    margin: 2px;
-    color: white;
+:host /deep/ svg rect {
+  fill: gray;
+}
+ .barChart{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+:host /deep/ svg text {
+  fill: yellow;
+  font: 12px sans-serif;
+  text-anchor: end;
+}
+
+/*
+Style scope
+The styles specified in @Component metadata apply only within the template of that component.
+
+Special selectors
+Component styles have a few special selectors from the world of shadow DOM style scoping
+The :host selector is the only way to target the host element. You can't reach the host
+ element from inside the component with other selectors because it's not part of the
+  component's own template. The host element is in a parent component's template.
+    :host {
+  display: block;
+  border: 1px solid black;
+}
+
+  then some of the combinators that are about to be deprecated
+  (deprecated) /deep/, >>>, and ::ng-deep
+
+Only encapsulation: ViewEncapsulation.Native  won't work so you must use the :host /deep/  or  ::ng-deep combinators
+* shadow piercing is done here using the only angular supported ::ng-deep combinator
+*  or we can use like this 
+:host /deep/ svg text {
+    fill: yellow;
+    font: 12px sans-serif;
+    text-anchor: end;
   }
+*/

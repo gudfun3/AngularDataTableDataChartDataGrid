@@ -10,7 +10,7 @@ export class D3piechartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    var data = [
+    /* var data = [
     {"platform": "Android", "percentage": 40.11}, 
     {"platform": "Windows", "percentage": 36.69},
     {"platform": "iOS", "percentage": 13.06}
@@ -20,7 +20,8 @@ var svgWidth = 500, svgHeight = 300, radius =  Math.min(svgWidth, svgHeight) / 2
 var svg = d3.select('svg')
     .attr("width", svgWidth)
     .attr("height", svgHeight);
-
+    
+    
 //Create group element to hold pie chart    
 var g = svg.append("g")
     .attr("transform", "translate(" + radius + "," + radius + ")") ;
@@ -53,7 +54,7 @@ arc.append("text")
         return "translate(" + label.centroid(d) + ")"; 
     })
     .attr("text-anchor", "middle")
-    .text(function(d) { return d.data.platform+":"+d.data.percentage+"%"; });
+    .text(function(d) { return d.data.platform+":"+d.data.percentage+"%"; }); */
   }
 
 }
