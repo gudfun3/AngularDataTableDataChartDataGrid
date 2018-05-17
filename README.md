@@ -2,6 +2,47 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 
+This is POC on Angular / D3 / AgGrid/ NgxCharts 
+More D3 Demos using Angular will be updated here
+
+1.First Obstacle Faced:(solved)
+Component level Css dont reflect on component level elements on page while using D3
+solved : Solved by using Css Shadow piercing combinator
+Style scope
+The styles specified in @Component metadata apply only within the template of that component.
+
+Special selectors
+Component styles have a few special selectors from the world of shadow DOM style scoping
+The :host selector is the only way to target the host element. You can't reach the host
+ element from inside the component with other selectors because it's not part of the
+  component's own template. The host element is in a parent component's template.
+    :host {
+  display: block;
+  border: 1px solid black;
+}
+
+  then some of the combinators that are about to be deprecated
+  (deprecated) /deep/, >>>, and ::ng-deep
+
+Only encapsulation: ViewEncapsulation.Native  won't work so you must use the :host /deep/  or  ::ng-deep combinators
+* shadow piercing is done here using the only angular supported ::ng-deep combinator
+*  or we can use like this 
+:host /deep/ svg text {
+    fill: yellow;
+    font: 12px sans-serif;
+    text-anchor: end;
+ Never give the body or header like tags that are common to other componenents
+ as D3 directly manipulates the DOM which will be affect to other 
+ components also .. Angular is a Single page Application and D3 directly 
+ manipultes dom so they may interfere each other so always select an element
+ of specfic class or id type 
+
+  View encapsulation is necessary(not really if you are using css shadow piercing ) here because the style we give to our d3 created elements
+*  will directly affect the DOM so to give scoped style or style specific to our component we
+* can take the help of encapsulation property in our @Component Decorator which won't leak style to other
+* component and will keep the style to itself
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
