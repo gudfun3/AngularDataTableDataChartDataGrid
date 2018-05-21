@@ -17,15 +17,15 @@ export class D3Graph1Component implements OnInit {
     name: null,
     actor: null,
     rank: null,
-    description: null,
+    description: null
   }
   
-  // D3 codes are as per the latest version 6
+  // D3 codes are as per the latest D3 V5
   constructor(private loadJsonService: LoadJsonServiceService) { }
   // domain is input and range is output    domain is input between a bound  and range is output bettween a bound given a domin 
   ngOnInit() {
     this.loadJsonService.getJson()
-      .subscribe((data: BarGraph) => this.data = {
+      .subscribe((data:BarGraph) => this.data = {
         name: data['name'],
         actor:  data['actor'],
         rank:  data['rank'],
