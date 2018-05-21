@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { BarGraph } from './models/bargraph.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class LoadJsonServiceService {
 
   constructor(private http:HttpClient) {
     
    }
-  public getJson():Observable<any>{
-    return this.http.get("./assets/sucide-squad.json")
+  public getJson():Observable<BarGraph> {
+    return this.http.get<BarGraph>("./assets/sucide-squad.json")
     
   }
 }
