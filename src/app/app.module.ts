@@ -23,6 +23,9 @@ import { D3Chart1Component } from './d3-chart1/d3-chart1.component';
 
 import { D3BarChartComponent } from './d3-bar-chart/d3-bar-chart.component';
 import { D3piechartComponent } from './d3piechart/d3piechart.component';
+import { D3Graph1Component } from './d3-graph1/d3-graph1.component';
+import { D3LineChart1Component } from './d3-line-chart1/d3-line-chart1.component';
+import { LoadJsonServiceService } from './load-json-service.service';
 const appRoutes:Routes = [
   {path: 'home', component:HomeComponent},
   {path: 'contactus', component:ContactusComponent},
@@ -35,6 +38,8 @@ const appRoutes:Routes = [
   {path: 'd3chart1', component: D3Chart1Component},
   {path: 'd3piechart', component: D3piechartComponent},
   {path: 'd3barchart', component: D3BarChartComponent},
+  {path: 'd3linechart1', component: D3LineChart1Component},
+  {path: 'd3graph1', component: D3Graph1Component},
   {path: '', redirectTo:'/home', pathMatch:'full'},
   {path: '**', component: PageNotFoundComponent}  
 ];
@@ -53,7 +58,9 @@ const appRoutes:Routes = [
     PageNotFoundComponent,
     D3Chart1Component,
     D3BarChartComponent,
-    D3piechartComponent
+    D3piechartComponent,
+    D3Graph1Component,
+    D3LineChart1Component
   ],
   imports: [
     BrowserModule,
@@ -64,7 +71,7 @@ const appRoutes:Routes = [
     BrowserAnimationsModule,
     AgGridModule.withComponents([])
   ],
-  providers: [],
+  providers: [LoadJsonServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

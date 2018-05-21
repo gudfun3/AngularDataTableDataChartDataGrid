@@ -48,6 +48,8 @@ export class D3BarChartComponent implements OnInit{
        .attr("y", barHeight / 2)
        .attr("dy", ".35em")
        .text(function(d) { return d; });
+
+   console.log(d3);
 }
 ngOnDestroy(){
   console.log("ng destroy called");
