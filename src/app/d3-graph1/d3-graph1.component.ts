@@ -13,13 +13,24 @@ import { BarGraph } from '../models/bargraph.model';
   styleUrls: ['./d3-graph1.component.scss']
 })
 export class D3Graph1Component implements OnInit {
-  data: BarGraph;
+  data: BarGraph={
+    name: null,
+    actor: null,
+    rank: null,
+    description: null,
+  }
+  
   // D3 codes are as per the latest version 6
   constructor(private loadJsonService: LoadJsonServiceService) { }
   // domain is input and range is output    domain is input between a bound  and range is output bettween a bound given a domin 
   ngOnInit() {
     this.loadJsonService.getJson()
-      .subscribe(data => this.data = data)
+      .subscribe((data: BarGraph) => this.data = {
+        name: data['name'],
+        actor:  data['actor'],
+        rank:  data['rank'],
+        description:  data['description']
+    });
 
     console.log(this.data);
     this.createGraph();
