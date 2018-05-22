@@ -59,16 +59,21 @@ export class D3Graph1Component implements OnInit,OnDestroy {
              has been changed to 
              d3.json("https://api.myjson.com/bins/utaki").then(function(data) {});
              */
-        d3.json("https://api.myjson.com/bins/utaki").then(function(data){
-            x.domain(data.map(function (d)
-          {
-              return d.name;
-          }));
-          y.domain([0, d3.max(data, function (d)
-            {
-                return d.rank;
-            })]);
+        d3.json("https://api.myjson.com/bins/utaki").then(function(data:BarGraph){
+            x.domain(this.data.name);
         });
+        svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0, " + height + ")")
+        .call(xAxis)
+        .selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx", "-0.5em")
+        .attr("dy", "-.55em")
+        .attr("y", 30)
+        .attr("transform", "rotate(-45)" );
+        
+          
    
         //Reading Json Data and appending data to the graph
 
