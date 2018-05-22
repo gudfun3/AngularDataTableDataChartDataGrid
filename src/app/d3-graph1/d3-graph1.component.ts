@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as d3 from 'd3';
 import { LoadJsonServiceService } from '../load-json-service.service';
 import { Observable } from "rxjs";
@@ -11,7 +11,8 @@ import { BarGraph } from '../models/bargraph.model';
     templateUrl: './d3-graph1.component.html',
     styleUrls: ['./d3-graph1.component.scss']
 })
-export class D3Graph1Component implements OnInit {
+export class D3Graph1Component implements OnInit,OnDestroy {
+   
     data: BarGraph = {
         name: null,
         actor: null,
@@ -27,9 +28,8 @@ export class D3Graph1Component implements OnInit {
             .subscribe((data: BarGraph) => {
             this.data = data as BarGraph
             });
-
-        console.log(this.data);
         this.createGraph();
+        
     }
 
     createGraph() {
@@ -53,8 +53,23 @@ export class D3Graph1Component implements OnInit {
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-            
-            
+            /* The only change is the json request, that adds a then function
+             instead of returning the data directly.
+             d3.json("this.data",function(error, data) {});
+             has been changed to 
+             d3.json("https://api.myjson.com/bins/utaki").then(function(data) {});
+             */
+        d3.json("https://api.myjson.com/bins/utaki").then(function(data){
+            x.domain(data.map(function (d)
+          {
+              return d.name;
+          }));
+          y.domain([0, d3.max(data, function (d)
+            {
+                return d.rank;
+            })]);
+        });
+   
         //Reading Json Data and appending data to the graph
 
 
@@ -137,6 +152,10 @@ export class D3Graph1Component implements OnInit {
         }
         
         });  */
+    }
+    ngOnDestroy() {
+     
+        console.log(this.data);
     }
 
 }

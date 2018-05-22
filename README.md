@@ -42,8 +42,12 @@ Only encapsulation: ViewEncapsulation.Native  won't work so you must use the :ho
 * can take the help of encapsulation property in our @Component Decorator which won't leak style to other
 * component and will keep the style to itself
 
-
-
+## Biggest Change while retriving json data using D3 V5(version 5)
+The only change is the json request, that adds a then function instead of returning the data directly.
+d3.json("this.data",function(error, data) {});
+    has been changed to 
+d3.json("https://api.myjson.com/bins/utaki").then(function(data) {});
+      
 
 ## Development server
 
