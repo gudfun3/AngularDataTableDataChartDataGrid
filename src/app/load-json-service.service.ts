@@ -12,7 +12,10 @@ export class LoadJsonServiceService {
     
    }
   public getJson():Observable<BarGraph>{
-    return this.http.get<BarGraph>("./assets/sucide-squad.json");
+    return this.http.get<BarGraph>("https://api.myjson.com/bins/utaki")
+    .pipe(
+     
+    );
     
   }
 }
