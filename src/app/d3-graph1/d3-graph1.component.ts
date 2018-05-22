@@ -25,12 +25,7 @@ export class D3Graph1Component implements OnInit {
     ngOnInit() {
         this.loadJsonService.getJson()
             .subscribe((data: BarGraph) => {
-            this.data = {
-                name:data['name'],
-                actor: data['actor'],
-                rank: data['rank'],
-                description: data['description']
-            }
+            this.data = data as BarGraph
             });
 
         console.log(this.data);
@@ -59,8 +54,7 @@ export class D3Graph1Component implements OnInit {
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
             
-    
-    
+            
         //Reading Json Data and appending data to the graph
 
 

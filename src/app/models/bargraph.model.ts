@@ -1,6 +1,6 @@
 
 
-export class BarGraph {
+export interface BarGraph {
 
     name: string;
     actor: string;
